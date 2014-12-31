@@ -5,6 +5,8 @@
 #include <QMessageBox>
 #include <QtSerialPort/QSerialPortInfo>
 #include <QtSerialPort/QtSerialPort>
+#include <qwt_plot_curve.h>
+
 
 namespace Ui {
 class arduinterface;
@@ -13,6 +15,9 @@ class arduinterface;
 class arduinterface : public QMainWindow
 {
     Q_OBJECT
+
+    QVector<double> analogData;
+    QVector<double> timeData;
 
 public:
     explicit arduinterface(QWidget *parent = 0);
@@ -29,6 +34,8 @@ private slots:
 private:
     Ui::arduinterface *ui;
     QSerialPort *serial;
+    QTimer *runTime;
+    QwtPlotCurve *curve;
     char *buff;
 };
 

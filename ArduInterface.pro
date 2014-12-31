@@ -19,3 +19,6 @@ SOURCES += main.cpp\
 HEADERS  += arduinterface.h
 
 FORMS    += arduinterface.ui
+
+CONFIG += qwt
+include ( /usr/local/qwt-6.1.2/features/qwt.prf )
